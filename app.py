@@ -2303,18 +2303,12 @@ print("Peak Load:", round(peak_load, 2), "kW")
 print("Average Load:", round(average_load, 2), "kW")
 print("24-Hour Forecast Generated Successfully!")
 
-import nbformat
 
-nb = nbformat.read("website.ipynb", as_version=4)
 
 code = "\n\n".join(
-    cell.source
     for cell in nb.cells
-    if cell.cell_type == "code"
 )
 
-with open("app.py", "w", encoding="utf-8") as f:
-    f.write(code)
 
 print("app.py created successfully!")
 
@@ -2342,6 +2336,5 @@ print("requirements.txt created")
 
 import os
 print(os.path.exists("requirements.txt"))
-
 
 
