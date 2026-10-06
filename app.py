@@ -1500,9 +1500,6 @@ print("======================================")
 print("Open Chrome:")
 print("http://127.0.0.1:5000")
 
-# Start the existing Flask website
-%run app.py
-
 import os
 print(os.listdir())
 
@@ -2306,14 +2303,43 @@ print("Peak Load:", round(peak_load, 2), "kW")
 print("Average Load:", round(average_load, 2), "kW")
 print("24-Hour Forecast Generated Successfully!")
 
-import os
-print(os.getcwd())
+import nbformat
+
+nb = nbformat.read("website.ipynb", as_version=4)
+
+code = "\n\n".join(
+    cell.source
+    for cell in nb.cells
+    if cell.cell_type == "code"
+)
+
+with open("app.py", "w", encoding="utf-8") as f:
+    f.write(code)
+
+print("app.py created successfully!")
 
 import os
-print(os.path.exists("smart_load_dataset.csv"))
-print(os.path.exists("load_forecast.csv"))
-print(os.path.exists("cloud_forecast_result.json"))
+print(os.path.exists("app.py"))
 
 import os
-print(os.listdir(r"C:\Users\PRAVEEN R"))
+
+print(os.path.abspath("app.py"))
+print(os.path.exists("app.py"))
+
+import os
+print(os.path.isfile("app.py"))
+print(os.path.getsize("app.py"))
+
+with open("requirements.txt", "w") as f:
+    f.write("""flask
+pandas
+numpy
+scikit-learn
+gunicorn
+""")
+
+print("requirements.txt created")
+
+import os
+print(os.path.exists("requirements.txt"))
 
