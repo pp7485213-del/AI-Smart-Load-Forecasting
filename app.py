@@ -2303,15 +2303,6 @@ print("Peak Load:", round(peak_load, 2), "kW")
 print("Average Load:", round(average_load, 2), "kW")
 print("24-Hour Forecast Generated Successfully!")
 
-
-
-code = "\n\n".join(
-    for cell in nb.cells
-)
-
-
-print("app.py created successfully!")
-
 import os
 print(os.path.exists("app.py"))
 
@@ -2336,5 +2327,4 @@ print("requirements.txt created")
 
 import os
 print(os.path.exists("requirements.txt"))
-
 
